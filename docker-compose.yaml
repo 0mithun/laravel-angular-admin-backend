@@ -14,6 +14,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+
+    command: 'php artisan serve --host=0.0.0.0'
     environment:
       DB_HOST: db
       DB_DATABASE: admin
@@ -22,6 +24,7 @@ services:
     ports:
       - 8000:8000
     volumes:
+      - /app/vendor
       - .:/app
     depends_on:
       - db
